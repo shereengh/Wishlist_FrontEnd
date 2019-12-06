@@ -4,9 +4,12 @@ function ItemCard(props) {
   const item = props.item;
   return (
     <div className="col-lg-4 col-md-6 col-12 my-5">
-      <div className="card" style={{ height: "200px", borderRadius: 35 }}>
+      <div
+        className="card"
+        style={{ height: "280px", borderColor: "#d12e72", borderWidth: 2 }}
+      >
         {/* <Link to={`/items/${item.id}`}> */}
-        <div className="img">
+        <div className="img mt-3">
           <img
             style={{ width: 200, height: 150, marginLeft: 50 }}
             className="card-img-top img-fluid"
@@ -15,16 +18,9 @@ function ItemCard(props) {
           />
         </div>
         {/* </Link> */}
-        <div
-          className="card-body"
-          style={{
-            background: "#e0e0e0",
-            borderBottomLeftRadius: 35,
-            borderBottomRightRadius: 35
-          }}
-        >
+        <div className="card-body">
           <h5
-            className="card-title"
+            className="card-title mt-5"
             style={{
               textAlign: "center",
               color: "#d12e72"
