@@ -23,7 +23,10 @@ class Login extends Component {
 
     return (
       <div className="bg my-6">
-        <div className="container-fluid jumbotron bg-transparent my-5 text-center align-ceneter">
+        <div
+          className="container-fluid jumbotron my-5 text-center align-ceneter"
+          style={{ background: "rgba(255, 255, 255, 0.71)" }}
+        >
           <div className=" col-6 mx-auto my-5">
             <div className="card my-5">
               <div className="card-body">
@@ -45,6 +48,7 @@ class Login extends Component {
                     <input
                       type="password"
                       className="form-control"
+                      style={{ backgroundColor: "white" }}
                       id="password"
                       value={password}
                       name="password"
@@ -58,11 +62,19 @@ class Login extends Component {
                         : ""}
                     </p>
                   </div>
-                  <button type="submit" className="btn btn-primary">
+                  <button
+                    type="submit"
+                    className="btn "
+                    style={{ color: "white", background: "#d12e72" }}
+                  >
                     Login
                   </button>
                   <br />
-                  <Link to="/register" className="btn btn-link my-2 my-sm-0">
+                  <Link
+                    to="/register"
+                    className="btn  my-2 my-sm-0"
+                    style={{ color: "#d12e72" }}
+                  >
                     Signup for an account
                   </Link>
                 </form>

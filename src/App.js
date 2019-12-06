@@ -31,7 +31,7 @@ class App extends Component {
     return (
       <>
         <div className=" mybackground">
-          <div className="content col-10">
+          <div className="content col-12">
             <NavBar />
             {this.getView()}
           </div>
