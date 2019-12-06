@@ -51,7 +51,7 @@ class Signup extends Component {
           crossOrigin="anonymous"
         />
         <Form onSubmit={this.handleSubmit}>
-          <Form.Group controlId="formBasicEmail">
+          <Form.Group>
             <Form.Label htmlFor="username">Username</Form.Label>
             <Form.Control
               type="text"
@@ -64,7 +64,7 @@ class Signup extends Component {
             />
           </Form.Group>
 
-          <Form.Group controlId="formBasicEmail">
+          <Form.Group>
             <Form.Label htmlFor="first_name">First Name</Form.Label>
             <Form.Control
               type="text"
@@ -76,7 +76,7 @@ class Signup extends Component {
             />
           </Form.Group>
 
-          <Form.Group controlId="formBasicEmail">
+          <Form.Group>
             <Form.Label htmlFor="last_name">Last Name</Form.Label>
             <Form.Control
               type="text"
@@ -88,7 +88,7 @@ class Signup extends Component {
             />
           </Form.Group>
 
-          <Form.Group controlId="formBasicEmail">
+          <Form.Group>
             <Form.Label htmlFor="e-mail">E-mail</Form.Label>
             <Form.Control
               type="text"
@@ -100,7 +100,7 @@ class Signup extends Component {
             />
           </Form.Group>
 
-          <Form.Group controlId="formBasicEmail">
+          <Form.Group>
             <Form.Label htmlFor="password">Password</Form.Label>
             <Form.Control
               type="password"
