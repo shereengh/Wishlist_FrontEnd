@@ -4,7 +4,7 @@ import { Redirect, Link } from "react-router-dom";
 
 class Home extends Component {
   render() {
-    if (this.props.user) return <Redirect to="/ItemsList" />;
+    if (this.props.user) return <Redirect to="/items" />;
 
     return (
       <Link type="button" to="/login">
