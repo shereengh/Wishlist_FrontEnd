@@ -15,7 +15,6 @@ class App extends Component {
 
     return (
       <Switch>
-
         <Route path="/home" component={Home} />
 
         <Route path="/login" component={LoginForm} />
@@ -23,7 +22,7 @@ class App extends Component {
 
         <Route path="/items" component={ItemsList} />
 
-        <Redirect to="/items" />
+        <Redirect to="/home" />
       </Switch>
     );
   };

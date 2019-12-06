@@ -1,13 +1,16 @@
 import { connect } from "react-redux";
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 class Home extends Component {
   render() {
-    console.log(this.props.user);
     if (this.props.user) return <Redirect to="/ItemsList" />;
 
-    return <button type="button">Start your own wishlist!!</button>;
+    return (
+      <Link type="button" to="/login">
+        Start your own wishlist!!
+      </Link>
+    );
   }
 }
 

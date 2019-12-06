@@ -6,7 +6,14 @@ import Loading from "./Loading";
 import ItemCard from "./ItemCard";
 import Searchbar from "./SearchBar";
 
+//actions
+import { fetchItems } from "../redux/actions";
+
 class ItemsList extends React.Component {
+  componentDidMount = async () => {
+    await this.props.fetchItems();
+  };
+
   render() {
     const allItems = this.props.filteredItems.map(item => (
       <ItemCard key={item.id} item={item} />
@@ -30,4 +37,10 @@ const mapStateToProps = state => ({
   filteredItems: state.rootList.filteredItems
 });
 
-export default connect(mapStateToProps)(ItemsList);
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchItems: () => dispatch(fetchItems())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ItemsList);

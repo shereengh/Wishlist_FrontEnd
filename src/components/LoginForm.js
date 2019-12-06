@@ -15,10 +15,10 @@ class Login extends Component {
   handleSubmit = event => {
     event.preventDefault();
     this.props.login(this.state, this.props.history);
+    return <Redirect to="/items" />;
   };
 
   render() {
-    if (this.props.user) return <Redirect to="/private" />;
     const { username, password } = this.state;
 
     return (
@@ -58,7 +58,6 @@ class Login extends Component {
                         : ""}
                     </p>
                   </div>
-
                   <button type="submit" className="btn btn-primary">
                     Login
                   </button>
@@ -88,7 +87,5 @@ const mapDispatchToProps = dispatch => {
       dispatch(actionCreators.login(userData, history))
   };
 };
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Login);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

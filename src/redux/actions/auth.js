@@ -56,13 +56,11 @@ export const login = (userData, history) => {
 export const signup = (userData, history) => {
   return async dispatch => {
     try {
-      console.log("I AM HERE");
-      console.log(userData);
       await instance.post("app/register/", userData);
       dispatch(login(userData, history));
     } catch (error) {
       console.log("signup error");
-      console.error(error.response.data);
+      console.error(error.response);
     }
   };
 };
