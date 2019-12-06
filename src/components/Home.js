@@ -8,7 +8,22 @@ class Home extends Component {
 
     return (
       <Link type="button" to="/login">
-        Start your own wishlist!!
+        <div
+          className="mt-5 "
+          style={{
+            position: "relative",
+            left: 450,
+            top: 200,
+            borderRadius: 30,
+            padding: 10,
+            background: "#d12e72"
+          }}
+        >
+          <h3 style={{ color: "black" }}>
+            {" "}
+            Click Here to Start your own wishlist!!
+          </h3>
+        </div>
       </Link>
     );
   }
