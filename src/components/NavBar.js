@@ -18,18 +18,22 @@ class NavBar extends Component {
               </Link>
             </li>
             {this.props.user ? (
-              <Link
-                to="/logout"
-                className="btn btn-link my-2 my-sm-0"
-                onClick={() => this.props.logout()}
-                style={{ color: "#8aac8a" }}
-              >
-                Logout
-              </Link>
+              <li className="nav-item ">
+                <Link
+                  to="/logout"
+                  className="nav-link"
+                  onClick={() => this.props.logout()}
+                  style={{ color: "#d12e72" }}
+                >
+                  Logout
+                </Link>
+              </li>
             ) : (
-              <Link to="/login" className="login btn-link">
-                Login
-              </Link>
+              <li className="nav-item ">
+                <Link to="/login" className="nav-link">
+                  Login
+                </Link>
+              </li>
             )}
           </ul>
         </div>

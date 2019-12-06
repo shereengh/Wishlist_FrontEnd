@@ -22,3 +22,7 @@ code {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+.-internal-autofill-selected {
+  background-color: #f0c7df !important;
+}
