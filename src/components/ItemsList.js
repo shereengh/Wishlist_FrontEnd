@@ -19,9 +19,19 @@ class ItemsList extends React.Component {
       <ItemCard key={item.id} item={item} />
     ));
     return (
-      <div className="container my-5 mx-5">
-        <Searchbar />
-        <div className="col-12 my-5 center mx-5">
+      <div
+        className="container  "
+        style={{
+          background: "white",
+          position: "absolute",
+          left: 0,
+          top: 60
+        }}
+      >
+        <div className=" m-5  ">
+          <Searchbar />
+        </div>
+        <div className="col-12 my-5 center mx-5 ">
           <div className="row">
             {this.props.loading ? <Loading /> : allItems}
           </div>
