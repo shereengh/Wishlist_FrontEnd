@@ -1,8 +1,10 @@
 import React from "react";
 import { Component } from "react";
 import { connect } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
-import * as actionCreators from "../redux/actions";
+import { Link } from "react-router-dom";
+
+//actions
+import { logout } from "../redux/actions";
 
 class NavBar extends Component {
   render() {
@@ -11,9 +13,9 @@ class NavBar extends Component {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
-              <a className="nav-link" href="#">
+              <Link className="nav-link" to="/home">
                 Home <span className="sr-only">(current)</span>
-              </a>
+              </Link>
             </li>
             {this.props.user ? (
               <Link
@@ -39,12 +41,8 @@ const mapStateToProps = state => ({
   user: state.rootAuth.user
 });
 
-
 const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch(actionCreators.logout())
+  logout: () => dispatch(logout())
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(NavBar);
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
