@@ -25,10 +25,14 @@ class App extends Component {
 
   render() {
     return (
-      <div className="content col-10">
-        <NavBar />
-        {this.getView()}
-      </div>
+      <>
+        <div className=" mybackground">
+          <div className="content col-10">
+            <NavBar />
+            {this.getView()}
+          </div>
+        </div>
+      </>
     );
   }
 }
