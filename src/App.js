@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 //components
+import Home from "./components/Home";
+import NavBar from "./components/NavBar";
 import Loading from "./components/Loading";
 import ItemsList from "./components/ItemsList";
-import NavBar from "./components/NavBar";
 
 class App extends Component {
   getView = () => {
@@ -12,6 +13,7 @@ class App extends Component {
 
     return (
       <Switch>
+        <Route path="/home" component={Home} />
         <Route path="/items" component={ItemsList} />
 
         <Redirect to="/items" />
