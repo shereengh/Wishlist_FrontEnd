@@ -5,8 +5,6 @@ import { connect } from "react-redux";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Jumbotron from "react-bootstrap/Jumbotron";
-import CardDeck from "react-bootstrap/CardDeck";
-// import "bootstrap/dist/css/bootstrap.min.css";
 
 class Signup extends Component {
   state = {
@@ -24,8 +22,6 @@ class Signup extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log("I AM IN THE FORM");
-    console.log(this.state);
     this.props.signup(this.state, this.props.history);
   };
 
@@ -71,7 +67,6 @@ class Signup extends Component {
               type="text"
               className="form-control"
               id="first_name"
-              // value={first_name}
               name="first_name"
               placeholder="First Name.."
               onChange={this.handleChange}
@@ -84,14 +79,10 @@ class Signup extends Component {
               type="text"
               className="form-control"
               id="last_name"
-              // value={last_name}
               name="last_name"
               placeholder="Last Name.."
               onChange={this.handleChange}
             />
-            {/* <Form.Text className="text-muted">
-                   We'll never share your email with anyone else.
-                   </Form.Text> */}
           </Form.Group>
 
           <Form.Group controlId="formBasicEmail">
@@ -100,14 +91,10 @@ class Signup extends Component {
               type="text"
               className="form-control"
               id="email"
-              // value={email}
               name="email"
               placeholder="Email.."
               onChange={this.handleChange}
             />
-            {/* <Form.Text className="text-muted">
-                   We'll never share your email with anyone else.
-                   </Form.Text> */}
           </Form.Group>
 
           <Form.Group controlId="formBasicEmail">
@@ -121,9 +108,6 @@ class Signup extends Component {
               placeholder="Password.."
               onChange={this.handleChange}
             />
-            {/* <Form.Text className="text-muted">
-                   We'll never share your email with anyone else.
-                   </Form.Text> */}
           </Form.Group>
           <Button
             variant="primary"
@@ -148,7 +132,4 @@ const mapStateToProps = state => ({
   user: state.rootAuth.user
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Signup);
+export default connect(mapStateToProps, mapDispatchToProps)(Signup);
