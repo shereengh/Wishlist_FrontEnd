@@ -4,7 +4,7 @@ import { Redirect, Link } from "react-router-dom";
 
 class Home extends Component {
   render() {
-    if (this.props.user) return <Redirect to="/ItemsList" />;
+    if (this.props.user) return <Redirect to="/items" />;
 
     return (
       <Link type="button" to="/login">
@@ -12,17 +12,14 @@ class Home extends Component {
           className="mt-5 "
           style={{
             position: "relative",
-            left: 450,
+            left: 550,
             top: 200,
             borderRadius: 30,
             padding: 10,
             background: "#d12e72"
           }}
         >
-          <h3 style={{ color: "black" }}>
-            {" "}
-            Click Here to Start your own wishlist!!
-          </h3>
+          <h3 style={{ color: "black" }}> Start your Wishlist!!</h3>
         </div>
       </Link>
     );
