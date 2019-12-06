@@ -15,7 +15,6 @@ class NavBar extends Component {
                 Home <span className="sr-only">(current)</span>
               </a>
             </li>
-            {console.log(this.props.user)}
             {this.props.user ? (
               <Link
                 to="/logout"
@@ -37,9 +36,9 @@ class NavBar extends Component {
   }
 }
 const mapStateToProps = state => ({
-  // user: state.user
   user: state.rootAuth.user
 });
+
 
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(actionCreators.logout())
