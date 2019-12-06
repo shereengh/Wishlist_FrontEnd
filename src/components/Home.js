@@ -7,20 +7,19 @@ class Home extends Component {
     if (this.props.user) return <Redirect to="/items" />;
 
     return (
-      <Link type="button" to="/login">
-        <div
-          className="mt-5 "
-          style={{
-            position: "relative",
-            left: 550,
-            top: 200,
-            borderRadius: 30,
-            padding: 10,
-            background: "#d12e72"
-          }}
-        >
-          <h3 style={{ color: "black" }}> Start your Wishlist!!</h3>
-        </div>
+      <Link
+        to="/login"
+        style={{
+          color: "black",
+          position: "relative",
+          left: 850,
+          top: 350,
+          padding: 10,
+          fontWeight: "bold",
+          fontSize: "24px"
+        }}
+      >
+        Click Here to start your own wishlist!!
       </Link>
     );
   }
