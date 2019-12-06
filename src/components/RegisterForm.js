@@ -43,7 +43,10 @@ class Signup extends Component {
         </div>
       );
     return (
-      <Jumbotron className="x">
+      <Jumbotron
+        className="x"
+        style={{ background: "rgba(255, 255, 255, 0.71)" }}
+      >
         <link
           rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -113,10 +116,10 @@ class Signup extends Component {
             />
           </Form.Group>
           <Button
-            variant="primary"
             type="submit"
-            id="btn"
+            className="btn btn-secondary btn-lg btn-block"
             onClick={this.setRedirect}
+            style={{ color: "white", backgroundColor: "#d12e72" }}
           >
             Signup
           </Button>
