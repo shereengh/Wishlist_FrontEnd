@@ -1,10 +1,13 @@
-import React, { Component } from "react";
-import { Link, Redirect } from "react-router-dom";
-import * as actionCreators from "../redux/actions";
 import { connect } from "react-redux";
+import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
+
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Jumbotron from "react-bootstrap/Jumbotron";
+
+//actions
+import { signup } from "../redux/actions";
 
 class Signup extends Component {
   state = {
@@ -124,8 +127,7 @@ class Signup extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  signup: (userData, history) =>
-    dispatch(actionCreators.signup(userData, history))
+  signup: (userData, history) => dispatch(signup(userData, history))
 });
 
 const mapStateToProps = state => ({
