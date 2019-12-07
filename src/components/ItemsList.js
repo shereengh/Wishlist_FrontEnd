@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 // Components
 import Loading from "./Loading";
@@ -45,14 +46,39 @@ class ItemsList extends React.Component {
           bottom: -1000
         }}
       >
-        <div style={{ marginLeft: 200 }}></div>
         <div className="col-12" style={{ marginLeft: 200 }}>
           {uuid ? (
             <h3 style={{ marginTop: 50 }}>
               {" "}
               <span style={{ color: "#d12e72" }}>{name}’s</span> Wish List{" "}
             </h3>
-          ) : null}
+          ) : (
+            <h3>
+              {" "}
+              <span style={{ color: "#d12e72" }}>My </span>wishlist
+            </h3>
+          )}
+          <div>
+            {this.props.user &&
+            (this.props.user.user_id === this.props.items[0].user ||
+              this.props.user.user_id === this.props.items[0].user.id) ? (
+              <Link to="/add/item">
+                <img
+                  src="https://png.pngtree.com/png-vector/20190419/ourlarge/pngtree-vector-add-icon-png-image_956621.jpg"
+                  alt="Just an add button!!"
+                  className="card-img"
+                  style={{
+                    fontSize: 10,
+                    width: 30,
+                    height: 30,
+                    left: 1065,
+                    top: 5,
+                    position: "absolute"
+                  }}
+                />
+              </Link>
+            ) : null}
+          </div>
           <div className="row">
             {this.props.loading ? <Loading /> : allItems}
           </div>
@@ -64,7 +90,8 @@ class ItemsList extends React.Component {
 
 const mapStateToProps = state => ({
   loading: state.rootList.loading,
-  items: state.rootList.items
+  items: state.rootList.items,
+  user: state.rootAuth.user
 });
 
 const mapDispatchToProps = dispatch => {
