@@ -1,4 +1,4 @@
-import { FETCH_ITEMS, FILTER_ITEMS } from "./actionTypes";
+import { FETCH_ITEMS, FETCH_OTHERS_ITEMS } from "./actionTypes";
 
 import instance from "./instance";
 
@@ -18,9 +18,18 @@ export const fetchItems = () => {
   };
 };
 
-export const filterItems = query => {
-  return {
-    type: FILTER_ITEMS,
-    payload: query
+export const fetchOthersItems = uuid => {
+  return async dispatch => {
+    try {
+      const response = await instance.get(`app/items/${uuid}/`);
+      const items = response.data;
+      dispatch({
+        type: FETCH_OTHERS_ITEMS,
+        payload: items
+      });
+    } catch (error) {
+      console.log("fetch items error");
+      console.error(error);
+    }
   };
 };
