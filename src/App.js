@@ -20,7 +20,8 @@ class App extends Component {
         <Route path="/login" component={LoginForm} />
         <Route path="/register" component={RegisterForm} />
 
-        <Route path="/items" component={ItemsList} />
+        <Route exact path="/items" component={ItemsList} />
+        <Route path="/items/:uuid" component={ItemsList} />
 
         <Redirect to="/home" />
       </Switch>

@@ -1,8 +1,7 @@
-import { FETCH_ITEMS, FILTER_ITEMS } from "../actions/actionTypes";
+import { FETCH_ITEMS, FETCH_OTHERS_ITEMS } from "../actions/actionTypes";
 
 const initialState = {
   items: [],
-  filteredItems: [],
   loading: true
 };
 
@@ -12,17 +11,14 @@ export default (state = initialState, action) => {
       return {
         ...state,
         items: action.payload,
-        filteredItems: action.payload,
         loading: false
       };
-    case FILTER_ITEMS:
+
+    case FETCH_OTHERS_ITEMS:
       return {
         ...state,
-        filteredItems: state.items.filter(item => {
-          return `${item.name}`
-            .toLowerCase()
-            .includes(action.payload.toLowerCase());
-        })
+        items: action.payload,
+        loading: false
       };
     default:
       return state;

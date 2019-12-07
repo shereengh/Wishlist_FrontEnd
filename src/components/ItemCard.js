@@ -8,16 +8,15 @@ function ItemCard(props) {
         className="card"
         style={{ height: "280px", borderColor: "#d12e72", borderWidth: 2 }}
       >
-        {/* <Link to={`/items/${item.id}`}> */}
         <div className="img mt-3">
           <img
-            style={{ width: 200, height: 150, marginLeft: 50 }}
+            style={{ width: 200, height: 150, marginLeft: 70 }}
             className="card-img-top img-fluid"
             src={item.img}
             alt="Just the item"
           />
         </div>
-        {/* </Link> */}
+
         <div className="card-body">
           <h5
             className="card-title mt-5"

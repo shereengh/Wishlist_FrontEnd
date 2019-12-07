@@ -4,20 +4,36 @@ import { connect } from "react-redux";
 // Components
 import Loading from "./Loading";
 import ItemCard from "./ItemCard";
-import Searchbar from "./SearchBar";
 
 //actions
-import { fetchItems } from "../redux/actions";
+import { fetchItems, fetchOthersItems } from "../redux/actions";
 
 class ItemsList extends React.Component {
   componentDidMount = async () => {
-    await this.props.fetchItems();
+    const uuid = this.props.match.params.uuid;
+    if (!uuid) await this.props.fetchItems();
+    else await this.props.fetchOthersItems(uuid);
   };
 
   render() {
-    const allItems = this.props.filteredItems.map(item => (
-      <ItemCard key={item.id} item={item} />
-    ));
+    if (this.props.loading) return <Loading />;
+    const uuid = this.props.match.params.uuid;
+    let name;
+    let allItems;
+    if (!uuid) {
+      allItems = this.props.items.map(item => (
+        <ItemCard key={item.id} item={item} />
+      ));
+    } else {
+      name =
+        this.props.items[0].user.first_name +
+        " " +
+        this.props.items[0].user.last_name;
+      allItems = this.props.items[0].user.items.map(item => (
+        <ItemCard key={item.id} item={item} />
+      ));
+    }
+
     return (
       <div
         className="container  "
@@ -25,13 +41,18 @@ class ItemsList extends React.Component {
           background: "white",
           position: "absolute",
           left: 0,
-          top: 60
+          top: 60,
+          bottom: -1000
         }}
       >
-        <div className=" m-5  ">
-          <Searchbar />
-        </div>
-        <div className="col-12 my-5 center mx-5 ">
+        <div style={{ marginLeft: 200 }}></div>
+        <div className="col-12" style={{ marginLeft: 200 }}>
+          {uuid ? (
+            <h3 style={{ marginTop: 50 }}>
+              {" "}
+              <span style={{ color: "#d12e72" }}>{name}’s</span> Wish List{" "}
+            </h3>
+          ) : null}
           <div className="row">
             {this.props.loading ? <Loading /> : allItems}
           </div>
@@ -43,13 +64,13 @@ class ItemsList extends React.Component {
 
 const mapStateToProps = state => ({
   loading: state.rootList.loading,
-  items: state.rootList.items,
-  filteredItems: state.rootList.filteredItems
+  items: state.rootList.items
 });
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchItems: () => dispatch(fetchItems())
+    fetchItems: () => dispatch(fetchItems()),
+    fetchOthersItems: uuid => dispatch(fetchOthersItems(uuid))
   };
 };
 

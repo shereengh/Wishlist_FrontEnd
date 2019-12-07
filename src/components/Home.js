@@ -19,7 +19,8 @@ class Home extends Component {
           fontSize: "24px"
         }}
       >
-        Click Here to start your own wishlist!!
+        Click <span style={{ color: "#d12e72" }}>Here</span> to start your own
+        wishlist !!
       </Link>
     );
   }
